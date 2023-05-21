@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+const path = require('path');
+
 const nextConfig = {
 	async headers() {
 		return [
@@ -17,6 +19,9 @@ const nextConfig = {
 				destination: 'http://localhost:5000/api/:path*', // 실제 API 서버 주소
 			},
 		];
+	},
+	sassOptions: {
+		includePaths: [path.join(__dirname, 'styles')],
 	},
 };
 
