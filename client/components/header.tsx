@@ -1,17 +1,12 @@
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
 
-interface headerProps {
-	setCondition: (str: string) => void;
-}
-export default function Header({ setCondition }: headerProps) {
+export default function Header() {
 	const menu = [
 		{ 홈: '/' },
 		{ 로그인: '/login' },
 		{ 회원가입: '/join' },
 		{ 커뮤니티생성: '/create' },
 	];
-	useEffect(() => {}, []);
 	return (
 		<header>
 			<ul>
@@ -21,9 +16,9 @@ export default function Header({ setCondition }: headerProps) {
 						const value = item[key]; // 값을 가져옵니다
 
 						return (
-							<p key={idx} onClick={() => setCondition(value)}>
+							<Link href={value} key={idx}>
 								{key}
-							</p>
+							</Link>
 						);
 					})}
 				</li>
