@@ -1,6 +1,15 @@
 import { Request, Response, Router } from 'express';
+import bcrypt from 'bcrypt';
+import Jwt from 'jsonwebtoken';
+import cookie from 'cookie';
+
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
+
+const hashPassword = async (pw: string) => {
+	const password = await bcrypt.hash(pw, 6);
+	return password;
+};
 
 async function createUser(name: string, email: string, pw: string) {
 	const user = await prisma.user.create({
@@ -14,6 +23,71 @@ async function createUser(name: string, email: string, pw: string) {
 	return user;
 }
 
+const passwordMatches = (a: string, b: string) => {
+	if (String(a) === String(b)) {
+		return true;
+	} else {
+		return false;
+	}
+};
+const isEmpty = (el: string) => {
+	if (el.length) {
+		return false;
+	} else {
+		return true;
+	}
+};
+
+/**
+ *
+ * @param req 로그인 api 요청
+ * @param res 로그인 api 응답
+ * @returns user, token
+ */
+const login = async (req: Request, res: Response) => {
+	const { email, pw } = req.body;
+	try {
+		let errors: any = {};
+		if (isEmpty(email)) errors.email = '사용자 이름은 비워둘 수 없습니다';
+		if (isEmpty(pw)) errors.pw = '비밀번호는 비워둘 수 없습니다';
+		if (Object.keys(errors).length > 0) {
+			return res.status(400).json(errors);
+		}
+
+		const user = await prisma.user.findFirst({ where: { email: email } });
+
+		if (!user)
+			return res
+				.status(404)
+				.json({ email: '사용자 이름이 등록되지 않았습니다' });
+
+		if (passwordMatches(pw, user.pw) === false) {
+			return res.status(401).json({ pw: '비밀번호가 틀림' });
+		}
+		const token = Jwt.sign({ email }, process.env.JWT_SECRET!);
+		res.set(
+			'Set-Cookie',
+			cookie.serialize('token', token, {
+				httpOnly: true,
+				path: '/',
+				maxAge: 60 * 60 * 24 * 7,
+				sameSite: 'strict',
+			})
+		);
+
+		return res.json({ user, token });
+	} catch (err) {
+		console.log(err);
+		return res.status(500).json(err);
+	}
+};
+
+/**
+ *
+ * @param req 회원가입 요청
+ * @param res 회원가입 응답
+ * @returns '데이터 저장에 성공'
+ */
 const register = async (req: Request, res: Response) => {
 	const { email, name, pw } = req.body;
 	console.log(email, name, pw);
@@ -41,7 +115,7 @@ const register = async (req: Request, res: Response) => {
 			return res.status(400).json(errors);
 		}
 
-		const newUser = await createUser(name, email, pw);
+		const newUser = await createUser(name, email, await hashPassword(pw));
 		console.log('Created user:', newUser);
 		if (newUser) {
 			res.status(200).json({ success: '데이터 저장에 성공' });
@@ -55,5 +129,6 @@ const register = async (req: Request, res: Response) => {
 const router = Router();
 
 router.post('/register', register);
+router.post('/login', login);
 
 export default router;

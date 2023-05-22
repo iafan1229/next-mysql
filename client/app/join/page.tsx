@@ -5,10 +5,10 @@ import Input from '@/components/input';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 
-interface errorType<T> {
-	name: string;
-	email: string;
-	response: T;
+interface errorType {
+	name?: string;
+	email?: string;
+	pw?: string;
 }
 
 export default function Login() {
@@ -16,7 +16,7 @@ export default function Login() {
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
 	const [pw, setPw] = useState('');
-	const [err, setErr] = useState<errorType<any>>({});
+	const [error, setError] = useState<errorType>({});
 	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault();
 
@@ -30,7 +30,7 @@ export default function Login() {
 			router.push('/');
 		} catch (err: any) {
 			console.log(err);
-			setErr(err?.response?.data || {});
+			setError(err?.response?.data || {});
 		}
 	};
 	return (
@@ -41,7 +41,7 @@ export default function Login() {
 					value={name}
 					setValue={setName}
 					type='text'
-					error={err.name}
+					error={error.name}
 				/>
 				<Input
 					text='이메일주소'
@@ -49,7 +49,7 @@ export default function Login() {
 					value={email}
 					setValue={setEmail}
 					type='text'
-					error={err.email}
+					error={error.email}
 				/>
 				<Input text='비밀번호' value={pw} setValue={setPw} type='password' />
 				<input type='submit' value='회원가입' />

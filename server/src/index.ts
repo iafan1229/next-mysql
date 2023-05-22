@@ -6,6 +6,9 @@ import cors from 'cors';
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 const origin = 'http://localhost:3000';
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const app = express();
 
@@ -16,8 +19,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
 	cors({
 		origin,
+		credentials: true,
 	})
 );
+
 //라우터
 app.use('/api/auth', authRoutes);
 
