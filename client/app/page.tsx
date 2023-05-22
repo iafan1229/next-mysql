@@ -11,11 +11,5 @@ export default function Home() {
 	// useEffect(() => {
 	// 	const data = axios('/api/data').then((res) => setTest(res.data.message));
 	// }, []);
-	return (
-		<>
-			<main>
-				<div>basic page</div>
-			</main>
-		</>
-	);
+	return <div>basic page</div>;
 }

@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
-
 interface inputTypes {
+	text: string;
 	type: string;
 	placeholder?: string;
 	value: string;
@@ -8,6 +7,7 @@ interface inputTypes {
 	error?: string;
 }
 export default function Input({
+	text,
 	type,
 	placeholder,
 	value,
@@ -16,6 +16,7 @@ export default function Input({
 }: inputTypes) {
 	return (
 		<div>
+			<span>{text}</span>
 			<input
 				type={type}
 				placeholder={placeholder}

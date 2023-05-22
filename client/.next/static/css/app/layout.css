@@ -197,6 +197,7 @@ table {
 
 a {
 	text-decoration: none;
+	color: #000;
 }
 @font-face {
 	font-family: 'Pretendard';
@@ -218,5 +219,20 @@ button {
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[2].oneOf[14].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[2].oneOf[14].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[2].oneOf[14].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[2].oneOf[14].use[5]!./styles/globals.scss ***!
   \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 header {
+  padding: 5vh 0;
+  border-bottom: 2px solid #ddd;
+}
+header ul {
   display: flex;
+  justify-content: space-around;
+  gap: 30px;
+}
+header ul li.on {
+  background: hotpink;
+  padding: 0 10px;
+  border-radius: 5px;
+}
+
+main {
+  padding: 30px;
 }

@@ -15,19 +15,18 @@ model User{
 
   name String @db.VarChar(200)
   email String @db.VarChar(200)
-  phoneNumber String @db.Char(11)
-  age Int
-  posts Post[] //여러개니까 복수s
+  pw String @db.VarChar(200)
+  //posts Post[] //여러개니까 복수s
   //<-> post Post?
 }
 
-model Post{
-  id String @id @default(uuid())
-  title String @db.VarChar(200)
-  content String @db.MediumText
+// model Post{
+//   id String @id @default(uuid())
+//   title String @db.VarChar(200)
+//   content String @db.MediumText
 
-  //foreign key(따라다니는 쪽에 fk를)
-  userId String
-  //userId String @unique
-  user User @relation(fields: [userId], references: [id])
-}
+//   //foreign key(따라다니는 쪽에 fk를)
+//   userId String
+//   //userId String @unique
+//   user User @relation(fields: [userId], references: [id])
+// }

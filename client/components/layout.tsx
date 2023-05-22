@@ -4,7 +4,7 @@ const Layout = ({ children }: PropsWithChildren) => {
 	return (
 		<>
 			<Header />
-			{children}
+			<main>{children}</main>
 		</>
 	);
 };

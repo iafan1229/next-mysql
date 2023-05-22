@@ -742,28 +742,28 @@ self.__RSC_MANIFEST={
         "async": false
       }
     },
-    "(app-client)/./app/page.tsx": {
+    "(app-client)/./components/header.tsx": {
       "*": {
-        "id": "(sc_client)/./app/page.tsx",
+        "id": "(sc_client)/./components/header.tsx",
         "name": "*",
         "chunks": [
-          "app/page:static/chunks/app/page.js"
+          "app/layout:static/chunks/app/layout.js"
         ],
         "async": false
       },
       "": {
-        "id": "(sc_client)/./app/page.tsx",
+        "id": "(sc_client)/./components/header.tsx",
         "name": "",
         "chunks": [
-          "app/page:static/chunks/app/page.js"
+          "app/layout:static/chunks/app/layout.js"
         ],
         "async": false
       },
       "default": {
-        "id": "(sc_client)/./app/page.tsx",
+        "id": "(sc_client)/./components/header.tsx",
         "name": "default",
         "chunks": [
-          "app/page:static/chunks/app/page.js"
+          "app/layout:static/chunks/app/layout.js"
         ],
         "async": false
       }
@@ -790,6 +790,58 @@ self.__RSC_MANIFEST={
         "name": "default",
         "chunks": [
           "app/layout:static/chunks/app/layout.js"
+        ],
+        "async": false
+      }
+    },
+    "(app-client)/./app/join/page.tsx": {
+      "*": {
+        "id": "(sc_client)/./app/join/page.tsx",
+        "name": "*",
+        "chunks": [
+          "app/join/page:static/chunks/app/join/page.js"
+        ],
+        "async": false
+      },
+      "": {
+        "id": "(sc_client)/./app/join/page.tsx",
+        "name": "",
+        "chunks": [
+          "app/join/page:static/chunks/app/join/page.js"
+        ],
+        "async": false
+      },
+      "default": {
+        "id": "(sc_client)/./app/join/page.tsx",
+        "name": "default",
+        "chunks": [
+          "app/join/page:static/chunks/app/join/page.js"
+        ],
+        "async": false
+      }
+    },
+    "(app-client)/./app/page.tsx": {
+      "*": {
+        "id": "(sc_client)/./app/page.tsx",
+        "name": "*",
+        "chunks": [
+          "app/page:static/chunks/app/page.js"
+        ],
+        "async": false
+      },
+      "": {
+        "id": "(sc_client)/./app/page.tsx",
+        "name": "",
+        "chunks": [
+          "app/page:static/chunks/app/page.js"
+        ],
+        "async": false
+      },
+      "default": {
+        "id": "(sc_client)/./app/page.tsx",
+        "name": "default",
+        "chunks": [
+          "app/page:static/chunks/app/page.js"
         ],
         "async": false
       }
@@ -2524,30 +2576,6 @@ self.__RSC_MANIFEST={
       ],
       "async": false
     },
-    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\app\\page.tsx": {
-      "id": "(app-client)/./app/page.tsx",
-      "name": "*",
-      "chunks": [
-        "app/page:static/chunks/app/page.js"
-      ],
-      "async": false
-    },
-    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\app\\page.tsx#": {
-      "id": "(app-client)/./app/page.tsx",
-      "name": "",
-      "chunks": [
-        "app/page:static/chunks/app/page.js"
-      ],
-      "async": false
-    },
-    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\app\\page.tsx#default": {
-      "id": "(app-client)/./app/page.tsx",
-      "name": "default",
-      "chunks": [
-        "app/page:static/chunks/app/page.js"
-      ],
-      "async": false
-    },
     "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\app\\globals.css#": {
       "id": "null",
       "name": "default",
@@ -2568,6 +2596,30 @@ self.__RSC_MANIFEST={
       "chunks": [
         "static/css/app/layout.css"
       ]
+    },
+    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\components\\header.tsx": {
+      "id": "(app-client)/./components/header.tsx",
+      "name": "*",
+      "chunks": [
+        "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\components\\header.tsx#": {
+      "id": "(app-client)/./components/header.tsx",
+      "name": "",
+      "chunks": [
+        "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\components\\header.tsx#default": {
+      "id": "(app-client)/./components/header.tsx",
+      "name": "default",
+      "chunks": [
+        "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
     },
     "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\node_modules\\next\\dist\\client\\link.js": {
       "id": "(app-client)/./node_modules/next/dist/client/link.js",
@@ -2614,6 +2666,54 @@ self.__RSC_MANIFEST={
       "name": "default",
       "chunks": [
         "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\app\\join\\page.tsx": {
+      "id": "(app-client)/./app/join/page.tsx",
+      "name": "*",
+      "chunks": [
+        "app/join/page:static/chunks/app/join/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\app\\join\\page.tsx#": {
+      "id": "(app-client)/./app/join/page.tsx",
+      "name": "",
+      "chunks": [
+        "app/join/page:static/chunks/app/join/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\app\\join\\page.tsx#default": {
+      "id": "(app-client)/./app/join/page.tsx",
+      "name": "default",
+      "chunks": [
+        "app/join/page:static/chunks/app/join/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\app\\page.tsx": {
+      "id": "(app-client)/./app/page.tsx",
+      "name": "*",
+      "chunks": [
+        "app/page:static/chunks/app/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\app\\page.tsx#": {
+      "id": "(app-client)/./app/page.tsx",
+      "name": "",
+      "chunks": [
+        "app/page:static/chunks/app/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\app\\page.tsx#default": {
+      "id": "(app-client)/./app/page.tsx",
+      "name": "default",
+      "chunks": [
+        "app/page:static/chunks/app/page.js"
       ],
       "async": false
     },
