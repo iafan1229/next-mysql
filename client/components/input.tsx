@@ -15,7 +15,7 @@ export default function Input({
 	error,
 }: inputTypes) {
 	return (
-		<div>
+		<div className='input-wrap'>
 			<span>{text}</span>
 			<input
 				type={type}

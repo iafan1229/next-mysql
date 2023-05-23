@@ -4,6 +4,7 @@ import { FormEvent, useEffect, useState } from 'react';
 import Input from '@/components/input';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
+import { useAuthDispatch } from '@/context/auth';
 
 interface errorType {
 	name?: string;
@@ -12,6 +13,7 @@ interface errorType {
 }
 
 export default function Login() {
+	const dispatch = useAuthDispatch();
 	const router = useRouter();
 	const [email, setEmail] = useState('');
 	const [pw, setPw] = useState('');
@@ -31,6 +33,10 @@ export default function Login() {
 				}
 			);
 			console.log(res);
+			if (res) {
+				dispatch('LOGIN', res.data?.user);
+				router.push('/');
+			}
 		} catch (err: any) {
 			console.log(err);
 			setErr(err?.response?.data || {});
@@ -38,6 +44,7 @@ export default function Login() {
 	};
 	return (
 		<>
+			<h1>로그인</h1>
 			<form onSubmit={(e) => handleSubmit(e)}>
 				<Input
 					text='이메일주소'
@@ -48,7 +55,7 @@ export default function Login() {
 					error={err.email}
 				/>
 				<Input text='비밀번호' value={pw} setValue={setPw} type='password' />
-				<input type='submit' value='회원가입' />
+				<input type='submit' value='로그인' />
 			</form>
 		</>
 	);

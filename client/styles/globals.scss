@@ -17,3 +17,37 @@ header {
 main {
 	padding: 30px;
 }
+
+.input-wrap {
+	padding: 5px;
+	> span:first-child {
+		display: inline-block;
+		padding-right: 10px;
+		min-width: 100px;
+	}
+	input {
+		border: 1px solid #ddd;
+		padding: 10px;
+		border-radius: 5px;
+	}
+}
+
+form {
+	border: 1px solid lightblue;
+	padding: 30px;
+}
+button,
+input[type='submit'] {
+	display: inline-block;
+	margin: 5px;
+	background: rgb(234, 232, 232);
+	outline: none;
+	border: none;
+	height: 30px;
+	min-width: 300px;
+	border-radius: 5px;
+}
+
+h1 {
+	padding: 5px;
+}

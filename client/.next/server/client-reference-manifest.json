@@ -742,6 +742,32 @@
         "async": false
       }
     },
+    "(app-client)/./app/page.tsx": {
+      "*": {
+        "id": "(sc_client)/./app/page.tsx",
+        "name": "*",
+        "chunks": [
+          "app/page:static/chunks/app/page.js"
+        ],
+        "async": false
+      },
+      "": {
+        "id": "(sc_client)/./app/page.tsx",
+        "name": "",
+        "chunks": [
+          "app/page:static/chunks/app/page.js"
+        ],
+        "async": false
+      },
+      "default": {
+        "id": "(sc_client)/./app/page.tsx",
+        "name": "default",
+        "chunks": [
+          "app/page:static/chunks/app/page.js"
+        ],
+        "async": false
+      }
+    },
     "(app-client)/./components/header.tsx": {
       "*": {
         "id": "(sc_client)/./components/header.tsx",
@@ -764,6 +790,48 @@
         "name": "default",
         "chunks": [
           "app/layout:static/chunks/app/layout.js"
+        ],
+        "async": false
+      }
+    },
+    "(app-client)/./context/auth.tsx": {
+      "*": {
+        "id": "(sc_client)/./context/auth.tsx",
+        "name": "*",
+        "chunks": [
+          "app/login/page:static/chunks/app/login/page.js"
+        ],
+        "async": false
+      },
+      "": {
+        "id": "(sc_client)/./context/auth.tsx",
+        "name": "",
+        "chunks": [
+          "app/login/page:static/chunks/app/login/page.js"
+        ],
+        "async": false
+      },
+      "AuthProvider": {
+        "id": "(sc_client)/./context/auth.tsx",
+        "name": "AuthProvider",
+        "chunks": [
+          "app/login/page:static/chunks/app/login/page.js"
+        ],
+        "async": false
+      },
+      "useAuthDispatch": {
+        "id": "(sc_client)/./context/auth.tsx",
+        "name": "useAuthDispatch",
+        "chunks": [
+          "app/login/page:static/chunks/app/login/page.js"
+        ],
+        "async": false
+      },
+      "useAuthState": {
+        "id": "(sc_client)/./context/auth.tsx",
+        "name": "useAuthState",
+        "chunks": [
+          "app/login/page:static/chunks/app/login/page.js"
         ],
         "async": false
       }
@@ -842,32 +910,6 @@
         "name": "default",
         "chunks": [
           "app/login/page:static/chunks/app/login/page.js"
-        ],
-        "async": false
-      }
-    },
-    "(app-client)/./app/page.tsx": {
-      "*": {
-        "id": "(sc_client)/./app/page.tsx",
-        "name": "*",
-        "chunks": [
-          "app/page:static/chunks/app/page.js"
-        ],
-        "async": false
-      },
-      "": {
-        "id": "(sc_client)/./app/page.tsx",
-        "name": "",
-        "chunks": [
-          "app/page:static/chunks/app/page.js"
-        ],
-        "async": false
-      },
-      "default": {
-        "id": "(sc_client)/./app/page.tsx",
-        "name": "default",
-        "chunks": [
-          "app/page:static/chunks/app/page.js"
         ],
         "async": false
       }
@@ -2576,6 +2618,30 @@
       ],
       "async": false
     },
+    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\app\\page.tsx": {
+      "id": "(app-client)/./app/page.tsx",
+      "name": "*",
+      "chunks": [
+        "app/page:static/chunks/app/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\app\\page.tsx#": {
+      "id": "(app-client)/./app/page.tsx",
+      "name": "",
+      "chunks": [
+        "app/page:static/chunks/app/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\app\\page.tsx#default": {
+      "id": "(app-client)/./app/page.tsx",
+      "name": "default",
+      "chunks": [
+        "app/page:static/chunks/app/page.js"
+      ],
+      "async": false
+    },
     "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\app\\globals.css#": {
       "id": "null",
       "name": "default",
@@ -2618,6 +2684,46 @@
       "name": "default",
       "chunks": [
         "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\context\\auth.tsx": {
+      "id": "(app-client)/./context/auth.tsx",
+      "name": "*",
+      "chunks": [
+        "app/login/page:static/chunks/app/login/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\context\\auth.tsx#": {
+      "id": "(app-client)/./context/auth.tsx",
+      "name": "",
+      "chunks": [
+        "app/login/page:static/chunks/app/login/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\context\\auth.tsx#AuthProvider": {
+      "id": "(app-client)/./context/auth.tsx",
+      "name": "AuthProvider",
+      "chunks": [
+        "app/login/page:static/chunks/app/login/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\context\\auth.tsx#useAuthDispatch": {
+      "id": "(app-client)/./context/auth.tsx",
+      "name": "useAuthDispatch",
+      "chunks": [
+        "app/login/page:static/chunks/app/login/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\context\\auth.tsx#useAuthState": {
+      "id": "(app-client)/./context/auth.tsx",
+      "name": "useAuthState",
+      "chunks": [
+        "app/login/page:static/chunks/app/login/page.js"
       ],
       "async": false
     },
@@ -2714,30 +2820,6 @@
       "name": "default",
       "chunks": [
         "app/login/page:static/chunks/app/login/page.js"
-      ],
-      "async": false
-    },
-    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\app\\page.tsx": {
-      "id": "(app-client)/./app/page.tsx",
-      "name": "*",
-      "chunks": [
-        "app/page:static/chunks/app/page.js"
-      ],
-      "async": false
-    },
-    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\app\\page.tsx#": {
-      "id": "(app-client)/./app/page.tsx",
-      "name": "",
-      "chunks": [
-        "app/page:static/chunks/app/page.js"
-      ],
-      "async": false
-    },
-    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\app\\page.tsx#default": {
-      "id": "(app-client)/./app/page.tsx",
-      "name": "default",
-      "chunks": [
-        "app/page:static/chunks/app/page.js"
       ],
       "async": false
     }
