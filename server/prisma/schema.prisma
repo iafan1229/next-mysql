@@ -16,17 +16,43 @@ model User{
   name String @db.VarChar(200)
   email String @db.VarChar(200)
   pw String @db.VarChar(200)
+  createdAt DateTime? @db.Timestamp()
+  updatedAt DateTime? @updatedAt
+  subs Subs[]
+  posts Post[]
   //posts Post[] //여러개니까 복수s
   //<-> post Post?
 }
 
-// model Post{
-//   id String @id @default(uuid())
-//   title String @db.VarChar(200)
-//   content String @db.MediumText
+model Subs{
+  id String @id @default(uuid())
+  createdAt DateTime? @db.Timestamp()
+  updatedAt DateTime? @updatedAt
+  name String @db.VarChar(200)
+  title String @db.VarChar(200)
+  description String? @db.MediumText
+  imageUrn String? @db.VarChar(200)
+  bannerUrn String? @db.VarChar(200)
+  //foriegn key
+  userName String
+  //userId String @unique
+  user User @relation(fields: [userName], references: [id])
+  posts Post[]
+}
 
-//   //foreign key(따라다니는 쪽에 fk를)
-//   userId String
-//   //userId String @unique
-//   user User @relation(fields: [userId], references: [id])
-// }
+model Post{
+  id String @id @default(uuid())
+
+  createdAt DateTime? @db.Timestamp()
+  updatedAt DateTime? @updatedAt
+  identifier String @db.VarChar(200)
+  title String @db.VarChar(200)
+  slug String @db.VarChar(200)
+  body String? @db.MediumText
+  
+  subName String
+  //userId String @unique
+  sub Subs @relation(fields: [subName], references: [id])
+  userName String
+  user User @relation(fields: [userName], references: [id])
+}
