@@ -1,6 +1,6 @@
 'use client';
 
-import { FormEvent, useEffect, useState } from 'react';
+import { FormEvent, useEffect, useState, use } from 'react';
 import Input from '@/components/input';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
@@ -17,6 +17,10 @@ export default function Login() {
 	const [email, setEmail] = useState('');
 	const [pw, setPw] = useState('');
 	const [error, setError] = useState<errorType>({});
+	// const isLogged = await getData();
+
+	// console.log(isLogged);
+
 	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault();
 
@@ -33,6 +37,7 @@ export default function Login() {
 			setError(err?.response?.data || {});
 		}
 	};
+
 	return (
 		<>
 			<form onSubmit={(e) => handleSubmit(e)}>

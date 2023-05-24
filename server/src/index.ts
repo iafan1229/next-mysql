@@ -2,9 +2,8 @@ import express from 'express';
 import morgan from 'morgan';
 import authRoutes from './routes/auth';
 import cors from 'cors';
+import cookieParser from 'cookie-parser';
 
-const { PrismaClient } = require('@prisma/client');
-const prisma = new PrismaClient();
 const origin = 'http://localhost:3000';
 const dotenv = require('dotenv');
 
@@ -22,6 +21,7 @@ app.use(
 		credentials: true,
 	})
 );
+app.use(cookieParser());
 
 //라우터
 app.use('/api/auth', authRoutes);

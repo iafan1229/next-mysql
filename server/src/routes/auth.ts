@@ -2,9 +2,9 @@ import { Request, Response, Router } from 'express';
 import bcrypt from 'bcrypt';
 import Jwt from 'jsonwebtoken';
 import cookie from 'cookie';
-
-const { PrismaClient } = require('@prisma/client');
-const prisma = new PrismaClient();
+import { prisma } from '../../utils/prisma';
+import userMiddleWare from '../../middlewares/user';
+import authMiddleWare from '../../middlewares/auth';
 
 const hashPassword = async (pw: string) => {
 	const password = await bcrypt.hash(pw, 6);
@@ -71,7 +71,7 @@ const login = async (req: Request, res: Response) => {
 				httpOnly: true,
 				path: '/',
 				maxAge: 60 * 60 * 24 * 7,
-				sameSite: 'strict',
+				// sameSite: 'strict',
 			})
 		);
 
@@ -126,8 +126,13 @@ const register = async (req: Request, res: Response) => {
 	}
 };
 
+const me = async (_: Request, res: Response) => {
+	return res.json(res.locals.user);
+};
+
 const router = Router();
 
+router.get('/me', userMiddleWare, authMiddleWare, me);
 router.post('/register', register);
 router.post('/login', login);
 

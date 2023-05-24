@@ -3,6 +3,7 @@ import '../styles/globals.scss';
 import { Inter } from 'next/font/google';
 import Layout from '@/components/layout';
 import { AuthProvider } from '@/context/auth';
+import axios from 'axios';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -16,6 +17,7 @@ export default function RootLayout({
 }: {
 	children: React.ReactNode;
 }) {
+	axios.defaults.withCredentials = true;
 	return (
 		<html lang='en'>
 			<body className={inter.className}>

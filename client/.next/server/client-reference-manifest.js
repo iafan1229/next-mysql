@@ -742,28 +742,62 @@ self.__RSC_MANIFEST={
         "async": false
       }
     },
-    "(app-client)/./app/page.tsx": {
+    "(app-client)/./app/join/page.tsx": {
       "*": {
-        "id": "(sc_client)/./app/page.tsx",
+        "id": "(sc_client)/./app/join/page.tsx",
         "name": "*",
         "chunks": [
-          "app/page:static/chunks/app/page.js"
+          "app/join/page:static/chunks/app/join/page.js"
         ],
         "async": false
       },
       "": {
-        "id": "(sc_client)/./app/page.tsx",
+        "id": "(sc_client)/./app/join/page.tsx",
         "name": "",
         "chunks": [
-          "app/page:static/chunks/app/page.js"
+          "app/join/page:static/chunks/app/join/page.js"
         ],
         "async": false
       },
       "default": {
-        "id": "(sc_client)/./app/page.tsx",
+        "id": "(sc_client)/./app/join/page.tsx",
         "name": "default",
         "chunks": [
-          "app/page:static/chunks/app/page.js"
+          "app/join/page:static/chunks/app/join/page.js"
+        ],
+        "async": false
+      }
+    },
+    "(app-client)/./node_modules/next/dist/shared/lib/lazy-dynamic/dynamic-no-ssr.js": {
+      "*": {
+        "id": "(sc_client)/./node_modules/next/dist/shared/lib/lazy-dynamic/dynamic-no-ssr.js",
+        "name": "*",
+        "chunks": [
+          "app/join/layout:static/chunks/app/join/layout.js"
+        ],
+        "async": false
+      },
+      "": {
+        "id": "(sc_client)/./node_modules/next/dist/shared/lib/lazy-dynamic/dynamic-no-ssr.js",
+        "name": "",
+        "chunks": [
+          "app/join/layout:static/chunks/app/join/layout.js"
+        ],
+        "async": false
+      },
+      "suspense": {
+        "id": "(sc_client)/./node_modules/next/dist/shared/lib/lazy-dynamic/dynamic-no-ssr.js",
+        "name": "suspense",
+        "chunks": [
+          "app/join/layout:static/chunks/app/join/layout.js"
+        ],
+        "async": false
+      },
+      "NoSSR": {
+        "id": "(sc_client)/./node_modules/next/dist/shared/lib/lazy-dynamic/dynamic-no-ssr.js",
+        "name": "NoSSR",
+        "chunks": [
+          "app/join/layout:static/chunks/app/join/layout.js"
         ],
         "async": false
       }
@@ -862,28 +896,28 @@ self.__RSC_MANIFEST={
         "async": false
       }
     },
-    "(app-client)/./app/join/page.tsx": {
+    "(app-client)/./app/page.tsx": {
       "*": {
-        "id": "(sc_client)/./app/join/page.tsx",
+        "id": "(sc_client)/./app/page.tsx",
         "name": "*",
         "chunks": [
-          "app/join/page:static/chunks/app/join/page.js"
+          "app/page:static/chunks/app/page.js"
         ],
         "async": false
       },
       "": {
-        "id": "(sc_client)/./app/join/page.tsx",
+        "id": "(sc_client)/./app/page.tsx",
         "name": "",
         "chunks": [
-          "app/join/page:static/chunks/app/join/page.js"
+          "app/page:static/chunks/app/page.js"
         ],
         "async": false
       },
       "default": {
-        "id": "(sc_client)/./app/join/page.tsx",
+        "id": "(sc_client)/./app/page.tsx",
         "name": "default",
         "chunks": [
-          "app/join/page:static/chunks/app/join/page.js"
+          "app/page:static/chunks/app/page.js"
         ],
         "async": false
       }
@@ -2618,27 +2652,91 @@ self.__RSC_MANIFEST={
       ],
       "async": false
     },
-    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\app\\page.tsx": {
-      "id": "(app-client)/./app/page.tsx",
+    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\app\\join\\page.tsx": {
+      "id": "(app-client)/./app/join/page.tsx",
       "name": "*",
       "chunks": [
-        "app/page:static/chunks/app/page.js"
+        "app/join/page:static/chunks/app/join/page.js"
       ],
       "async": false
     },
-    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\app\\page.tsx#": {
-      "id": "(app-client)/./app/page.tsx",
+    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\app\\join\\page.tsx#": {
+      "id": "(app-client)/./app/join/page.tsx",
       "name": "",
       "chunks": [
-        "app/page:static/chunks/app/page.js"
+        "app/join/page:static/chunks/app/join/page.js"
       ],
       "async": false
     },
-    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\app\\page.tsx#default": {
-      "id": "(app-client)/./app/page.tsx",
+    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\app\\join\\page.tsx#default": {
+      "id": "(app-client)/./app/join/page.tsx",
       "name": "default",
       "chunks": [
-        "app/page:static/chunks/app/page.js"
+        "app/join/page:static/chunks/app/join/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\node_modules\\next\\dist\\shared\\lib\\lazy-dynamic\\dynamic-no-ssr.js": {
+      "id": "(app-client)/./node_modules/next/dist/shared/lib/lazy-dynamic/dynamic-no-ssr.js",
+      "name": "*",
+      "chunks": [
+        "app/join/layout:static/chunks/app/join/layout.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\node_modules\\next\\dist\\esm\\shared\\lib\\lazy-dynamic\\dynamic-no-ssr.js": {
+      "id": "(app-client)/./node_modules/next/dist/shared/lib/lazy-dynamic/dynamic-no-ssr.js",
+      "name": "*",
+      "chunks": [
+        "app/join/layout:static/chunks/app/join/layout.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\node_modules\\next\\dist\\shared\\lib\\lazy-dynamic\\dynamic-no-ssr.js#": {
+      "id": "(app-client)/./node_modules/next/dist/shared/lib/lazy-dynamic/dynamic-no-ssr.js",
+      "name": "",
+      "chunks": [
+        "app/join/layout:static/chunks/app/join/layout.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\node_modules\\next\\dist\\esm\\shared\\lib\\lazy-dynamic\\dynamic-no-ssr.js#": {
+      "id": "(app-client)/./node_modules/next/dist/shared/lib/lazy-dynamic/dynamic-no-ssr.js",
+      "name": "",
+      "chunks": [
+        "app/join/layout:static/chunks/app/join/layout.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\node_modules\\next\\dist\\shared\\lib\\lazy-dynamic\\dynamic-no-ssr.js#suspense": {
+      "id": "(app-client)/./node_modules/next/dist/shared/lib/lazy-dynamic/dynamic-no-ssr.js",
+      "name": "suspense",
+      "chunks": [
+        "app/join/layout:static/chunks/app/join/layout.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\node_modules\\next\\dist\\esm\\shared\\lib\\lazy-dynamic\\dynamic-no-ssr.js#suspense": {
+      "id": "(app-client)/./node_modules/next/dist/shared/lib/lazy-dynamic/dynamic-no-ssr.js",
+      "name": "suspense",
+      "chunks": [
+        "app/join/layout:static/chunks/app/join/layout.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\node_modules\\next\\dist\\shared\\lib\\lazy-dynamic\\dynamic-no-ssr.js#NoSSR": {
+      "id": "(app-client)/./node_modules/next/dist/shared/lib/lazy-dynamic/dynamic-no-ssr.js",
+      "name": "NoSSR",
+      "chunks": [
+        "app/join/layout:static/chunks/app/join/layout.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\node_modules\\next\\dist\\esm\\shared\\lib\\lazy-dynamic\\dynamic-no-ssr.js#NoSSR": {
+      "id": "(app-client)/./node_modules/next/dist/shared/lib/lazy-dynamic/dynamic-no-ssr.js",
+      "name": "NoSSR",
+      "chunks": [
+        "app/join/layout:static/chunks/app/join/layout.js"
       ],
       "async": false
     },
@@ -2775,27 +2873,27 @@ self.__RSC_MANIFEST={
       ],
       "async": false
     },
-    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\app\\join\\page.tsx": {
-      "id": "(app-client)/./app/join/page.tsx",
+    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\app\\page.tsx": {
+      "id": "(app-client)/./app/page.tsx",
       "name": "*",
       "chunks": [
-        "app/join/page:static/chunks/app/join/page.js"
+        "app/page:static/chunks/app/page.js"
       ],
       "async": false
     },
-    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\app\\join\\page.tsx#": {
-      "id": "(app-client)/./app/join/page.tsx",
+    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\app\\page.tsx#": {
+      "id": "(app-client)/./app/page.tsx",
       "name": "",
       "chunks": [
-        "app/join/page:static/chunks/app/join/page.js"
+        "app/page:static/chunks/app/page.js"
       ],
       "async": false
     },
-    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\app\\join\\page.tsx#default": {
-      "id": "(app-client)/./app/join/page.tsx",
+    "C:\\Users\\tg88\\Desktop\\next-mysql\\client\\app\\page.tsx#default": {
+      "id": "(app-client)/./app/page.tsx",
       "name": "default",
       "chunks": [
-        "app/join/page:static/chunks/app/join/page.js"
+        "app/page:static/chunks/app/page.js"
       ],
       "async": false
     },
