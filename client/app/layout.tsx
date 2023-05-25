@@ -20,7 +20,7 @@ export default function RootLayout({
 	axios.defaults.withCredentials = true;
 	return (
 		<html lang='en'>
-			<body className={inter.className}>
+			<body className={inter.className} suppressHydrationWarning={true}>
 				<AuthProvider>
 					<Layout>{children}</Layout>
 				</AuthProvider>

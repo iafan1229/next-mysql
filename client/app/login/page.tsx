@@ -4,7 +4,7 @@ import { FormEvent, useEffect, useState } from 'react';
 import Input from '@/components/input';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
-import { useAuthDispatch } from '@/context/auth';
+import { useAuthDispatch, useAuthState } from '@/context/auth';
 
 interface errorType {
 	name?: string;
@@ -13,11 +13,16 @@ interface errorType {
 }
 
 export default function Login() {
+	const { authenticated } = useAuthState();
 	const dispatch = useAuthDispatch();
 	const router = useRouter();
 	const [email, setEmail] = useState('');
 	const [pw, setPw] = useState('');
 	const [err, setErr] = useState<errorType>({});
+
+	useEffect(() => {
+		if (authenticated) router.push('/');
+	}, []);
 	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault();
 

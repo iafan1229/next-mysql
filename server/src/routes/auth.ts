@@ -23,13 +23,6 @@ async function createUser(name: string, email: string, pw: string) {
 	return user;
 }
 
-const passwordMatches = (a: string, b: string) => {
-	if (String(a) === String(b)) {
-		return true;
-	} else {
-		return false;
-	}
-};
 const isEmpty = (el: string) => {
 	if (el.length) {
 		return false;
@@ -61,7 +54,8 @@ const login = async (req: Request, res: Response) => {
 				.status(404)
 				.json({ email: '사용자 이름이 등록되지 않았습니다' });
 
-		if (passwordMatches(pw, user.pw) === false) {
+		const passwordMatches = await bcrypt.compare(pw, user.pw);
+		if (passwordMatches === false) {
 			return res.status(401).json({ pw: '비밀번호가 틀림' });
 		}
 		const token = Jwt.sign({ email }, process.env.JWT_SECRET!);

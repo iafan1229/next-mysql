@@ -9,9 +9,12 @@ export default async (
 ) => {
 	try {
 		//요청의 쿠키에 담겨 있는 토큰을 가져오기
-		const token = request.headers.getcookie as string;
+		const token =
+			(request.cookies.token as string) ||
+			(request.headers.getcookie as string);
+		console.log(request);
 		console.log('리퀘스트의 헤더를 한번 볼까?');
-		console.log(token);
+
 		if (!token) return next();
 
 		//토큰 Decode

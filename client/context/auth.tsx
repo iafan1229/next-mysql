@@ -1,5 +1,6 @@
 'use client';
-import React, { createContext, useReducer, useContext } from 'react';
+import axios from 'axios';
+import React, { createContext, useReducer, useContext, useEffect } from 'react';
 
 interface State {
 	authenticated: boolean;
@@ -25,6 +26,7 @@ interface Action {
 	type: string;
 	payload: any;
 }
+
 const reducer = (state: State, { type, payload }: Action) => {
 	switch (type) {
 		case 'LOGIN':
@@ -59,6 +61,19 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 	const dispatch = (type: string, payload?: any) => {
 		defaultDispatch({ type, payload });
 	};
+	useEffect(() => {
+		async function loadUser() {
+			try {
+				const res = await axios.get('/api/auth/me');
+				dispatch('LOGIN', res.data);
+			} catch (error) {
+				console.log(error);
+			} finally {
+				dispatch('STOP_LOADING');
+			}
+		}
+		loadUser();
+	}, []);
 	return (
 		<DispatchContext.Provider value={dispatch}>
 			<StateContext.Provider value={state}>{children}</StateContext.Provider>
