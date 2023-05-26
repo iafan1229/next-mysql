@@ -29,7 +29,7 @@ export default function CreateCommunity() {
 	};
 	useEffect(() => {
 		if (!authenticated) {
-			router.push('/');
+			router.push('/error');
 		}
 	}, []);
 	return (

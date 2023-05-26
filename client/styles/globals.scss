@@ -4,12 +4,20 @@ header {
 	ul {
 		display: flex;
 		justify-content: space-around;
+		align-items: center;
 		gap: 30px;
 		li {
 			&.on {
 				background: hotpink;
 				padding: 0 10px;
 				border-radius: 5px;
+			}
+			&.logout {
+				width: 150px;
+				button {
+					width: 100%;
+					min-width: auto;
+				}
 			}
 		}
 	}

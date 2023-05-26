@@ -63,9 +63,10 @@ const login = async (req: Request, res: Response) => {
 			'Set-Cookie',
 			cookie.serialize('token', token, {
 				httpOnly: true,
+				secure: process.env.NODE_ENV === 'production',
 				path: '/',
 				maxAge: 60 * 60 * 24 * 7,
-				// sameSite: 'strict',
+				sameSite: 'strict',
 			})
 		);
 
@@ -123,11 +124,24 @@ const register = async (req: Request, res: Response) => {
 const me = async (_: Request, res: Response) => {
 	return res.json(res.locals.user);
 };
+const logout = async (_: Request, res: Response) => {
+	res.set(
+		'Set-Cookie',
+		cookie.serialize('token', '', {
+			httpOnly: true,
+			secure: process.env.NODE_ENV === 'production',
+			sameSite: 'strict',
+			expires: new Date(0),
+			path: '/',
+		})
+	);
+	res.status(200).json({ success: true });
+};
 
 const router = Router();
-
 router.get('/me', userMiddleWare, authMiddleWare, me);
 router.post('/register', register);
 router.post('/login', login);
+router.post('/logout', userMiddleWare, authMiddleWare, logout);
 
 export default router;
