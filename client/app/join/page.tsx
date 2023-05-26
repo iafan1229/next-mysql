@@ -17,9 +17,6 @@ export default function Login() {
 	const [email, setEmail] = useState('');
 	const [pw, setPw] = useState('');
 	const [error, setError] = useState<errorType>({});
-	// const isLogged = await getData();
-
-	// console.log(isLogged);
 
 	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault();

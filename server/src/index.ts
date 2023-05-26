@@ -1,6 +1,7 @@
 import express from 'express';
 import morgan from 'morgan';
 import authRoutes from './routes/auth';
+import subRoutes from './routes/subs';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 
@@ -25,6 +26,7 @@ app.use(cookieParser());
 
 //라우터
 app.use('/api/auth', authRoutes);
+app.use('/api/subs', subRoutes);
 
 const port = process.env.PORT || 5000;
 

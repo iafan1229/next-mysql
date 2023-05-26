@@ -23,6 +23,7 @@ export default function Login() {
 	useEffect(() => {
 		if (authenticated) router.push('/');
 	}, []);
+
 	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault();
 

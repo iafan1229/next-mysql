@@ -12,8 +12,6 @@ export default async (
 		const token =
 			(request.cookies.token as string) ||
 			(request.headers.getcookie as string);
-		console.log(request);
-		console.log('리퀘스트의 헤더를 한번 볼까?');
 
 		if (!token) return next();
 
