@@ -1,9 +1,12 @@
+'use client';
 import './globals.css';
 import '../styles/globals.scss';
 import { Inter } from 'next/font/google';
 import Layout from '@/components/layout';
 import { AuthProvider } from '@/context/auth';
 import axios from 'axios';
+import { useState } from 'react';
+import { Hydrate, QueryClient, QueryClientProvider } from 'react-query';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,12 +21,17 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	axios.defaults.withCredentials = true;
+	const [queryClient] = useState(() => new QueryClient());
 	return (
 		<html lang='en'>
 			<body className={inter.className} suppressHydrationWarning={true}>
-				<AuthProvider>
-					<Layout>{children}</Layout>
-				</AuthProvider>
+				<QueryClientProvider client={queryClient}>
+					<Hydrate>
+						<AuthProvider>
+							<Layout>{children}</Layout>
+						</AuthProvider>
+					</Hydrate>
+				</QueryClientProvider>
 			</body>
 		</html>
 	);

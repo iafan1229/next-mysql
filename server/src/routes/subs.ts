@@ -62,8 +62,29 @@ const createSub = async (req: Request, res: Response) => {
 		return res.status(400).json(err);
 	}
 };
+
+const topSubs = async (_: Request, res: Response) => {
+	try {
+		//const imageUrl = 'https://www.gravatar.com/avatar?d=mp&f=y';
+		const subs = await prisma.subs.findMany({
+			// include: {
+			// 	comments: true,
+			// },
+			orderBy: {
+				createdAt: 'desc',
+			},
+			take: 5,
+		});
+
+		return res.json(subs);
+	} catch (error) {
+		console.log(error);
+		return res.status(500).json({ error: 'wrong' });
+	}
+};
 const router = Router();
 
 router.post('/', userMiddleWare, authMiddleWare, createSub);
 
+router.get('/sub/topSubs', topSubs);
 export default router;

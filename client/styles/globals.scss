@@ -59,3 +59,20 @@ input[type='submit'] {
 h1 {
 	padding: 5px;
 }
+
+.community {
+	display: flex;
+	justify-content: space-between;
+	.content {
+	}
+	.list {
+		padding: 30px;
+		border: 1px solid #ddd;
+	}
+}
+
+.topSubs {
+	li {
+		padding: 5px;
+	}
+}
