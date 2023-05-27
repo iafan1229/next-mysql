@@ -52,7 +52,7 @@ input[type='submit'] {
 	outline: none;
 	border: none;
 	height: 30px;
-	min-width: 300px;
+	min-width: 50px;
 	border-radius: 5px;
 }
 
@@ -74,5 +74,51 @@ h1 {
 .topSubs {
 	li {
 		padding: 5px;
+	}
+}
+
+.community-detail {
+	.banner {
+		position: relative;
+		.no-banner {
+			width: 100%;
+			height: 40px;
+			background: #ccc;
+		}
+		.url {
+			position: absolute;
+			top: 10px;
+			left: 10px;
+		}
+	}
+
+	.content {
+		padding-top: 30px;
+		display: flex;
+		gap: 20px;
+		.left {
+			border: 1px solid #eee;
+			width: 60vw;
+		}
+		.right {
+			position: relative;
+			width: 40vw;
+			border: 1px solid #ddd;
+			padding: 20px;
+			.intro {
+				position: absolute;
+				top: 0;
+				left: 0;
+				background: lightgoldenrodyellow;
+				width: 100%;
+				height: 40px;
+				h3 {
+					padding: 10px;
+				}
+			}
+			.detail {
+				padding-top: 45px;
+			}
+		}
 	}
 }

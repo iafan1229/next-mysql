@@ -82,9 +82,24 @@ const topSubs = async (_: Request, res: Response) => {
 		return res.status(500).json({ error: 'wrong' });
 	}
 };
+
+const getSub = async (req: Request, res: Response) => {
+	const name = req.params.name;
+	try {
+		const sub = await prisma.subs.findFirst({
+			where: {
+				name: name,
+			},
+		});
+		console.log(sub);
+		return res.status(200).json(sub);
+	} catch (err) {
+		return res.status(404).json({ error: '커뮤니티를 찾을수없음' });
+	}
+};
 const router = Router();
 
 router.post('/', userMiddleWare, authMiddleWare, createSub);
-
 router.get('/sub/topSubs', topSubs);
+router.get('/:name', userMiddleWare, getSub);
 export default router;
