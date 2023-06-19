@@ -1,8 +1,11 @@
 'use client';
 
+import { ChangeEvent, useRef, useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import { useQuery } from 'react-query';
 import axios from 'axios';
+import Image from 'next/image';
+import { useAuthState } from '@/context/auth';
 
 interface subType {
 	data: {
@@ -14,10 +17,15 @@ interface subType {
 		description: string;
 		imageUrn?: string;
 		bannerUrn?: string;
+		userName: string;
 	};
 }
 
 export default function Community() {
+	const [ownSub, setOwnSub] = useState(false);
+	const [name, setName] = useState<string>('');
+	const { authenticated, user } = useAuthState();
+	const fileInputRef = useRef<HTMLInputElement>(null);
 	const { slug } = useParams();
 	const {
 		data: sub,
@@ -31,16 +39,77 @@ export default function Community() {
 		return data;
 	});
 	console.log(sub);
+
+	const uploadImg = async (e: ChangeEvent<HTMLInputElement>) => {
+		if (e.target.files === null) return;
+		const file = e.target.files[0];
+
+		const formData = new FormData();
+		if (sub?.data) {
+			formData.append('file', file);
+			formData.append('type', name);
+			formData.append('name', sub?.data.userName);
+		}
+
+		try {
+			await axios.post(`/api/subs/${sub?.data.name}/upload`, formData, {
+				headers: { 'Context-Type': 'multipart/form-data' },
+			});
+		} catch (err: any) {
+			console.log(err);
+		}
+	};
+	const openFileInput = (type: string) => {
+		if (!ownSub) return alert('유저가 생성한 커뮤니티가 아닙니다');
+		const fileinput = fileInputRef.current;
+		if (fileinput) {
+			setName(type);
+			// fileinput.name = type;
+			fileinput.click();
+		}
+	};
+	useEffect(() => {
+		if (!sub?.data || !user?.name) return;
+		setOwnSub(authenticated && user?.name === sub.data.userName);
+	}, [sub, user, authenticated]);
+	console.log(ownSub);
 	return (
 		<div className='community-detail'>
 			<div className='banner'>
+				<p>/community/{sub?.data?.name}</p>
 				{sub?.data?.bannerUrn ? (
 					<div>배너있음</div>
 				) : (
 					<div className='no-banner'></div>
 				)}
 				<div className='url'>
-					<p>/community/{sub?.data?.name}</p>
+					<span className='url-img'>
+						<span>
+							<Image
+								src={
+									'/images/' + sub?.data?.imageUrn ||
+									'https://www.gravatar.com/avatar?d=mp&f=y'
+								}
+								width={150}
+								height={150}
+								alt='이미지가 나오지 않음'
+							/>
+						</span>
+						<span onClick={() => openFileInput('image')}>
+							<Image
+								src={`/img/camera.png`}
+								alt='프로필 사진 선택'
+								width={50}
+								height={50}
+							/>
+						</span>
+						<input
+							type='file'
+							hidden={true}
+							ref={fileInputRef}
+							onChange={uploadImg}
+						/>
+					</span>
 				</div>
 			</div>
 

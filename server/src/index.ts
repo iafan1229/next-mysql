@@ -4,6 +4,7 @@ import authRoutes from './routes/auth';
 import subRoutes from './routes/subs';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import path from 'path';
 
 const origin = 'http://localhost:3000';
 const dotenv = require('dotenv');
@@ -12,7 +13,6 @@ dotenv.config();
 
 const app = express();
 
-//클라이언트에서 보내는 메시지를 분석(body-parser)
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
@@ -23,11 +23,11 @@ app.use(
 	})
 );
 app.use(cookieParser());
+app.use(express.static('public'));
 
 //라우터
 app.use('/api/auth', authRoutes);
 app.use('/api/subs', subRoutes);
-
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => {

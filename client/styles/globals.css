@@ -1,0 +1,190 @@
+header {
+  padding: 5vh 0;
+  border-bottom: 2px solid #ddd;
+}
+
+header ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 30px;
+}
+
+header ul li.on {
+  background: hotpink;
+  padding: 0 10px;
+  border-radius: 5px;
+}
+
+header ul li.logout {
+  width: 150px;
+}
+
+header ul li.logout button {
+  width: 100%;
+  min-width: auto;
+}
+
+main {
+  padding: 30px;
+}
+
+.input-wrap {
+  padding: 5px;
+}
+
+.input-wrap > span:first-child {
+  display: inline-block;
+  padding-right: 10px;
+  min-width: 100px;
+}
+
+.input-wrap input {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+form {
+  border: 1px solid lightblue;
+  padding: 30px;
+}
+
+button,
+input[type='submit'] {
+  display: inline-block;
+  margin: 5px;
+  background: #eae8e8;
+  outline: none;
+  border: none;
+  height: 30px;
+  min-width: 50px;
+  border-radius: 5px;
+}
+
+h1 {
+  padding: 5px;
+}
+
+.community {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.community .list {
+  padding: 30px;
+  border: 1px solid #ddd;
+}
+
+.topSubs li {
+  padding: 5px;
+}
+
+.community-detail .banner {
+  position: relative;
+  height: 80px;
+}
+
+.community-detail .banner > p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.community-detail .banner .no-banner {
+  width: 100%;
+  height: 100%;
+  background: #ddd;
+  color: #fff;
+}
+
+.community-detail .banner .url {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.community-detail .banner .url .url-img {
+  position: relative;
+  display: inline-block;
+}
+
+.community-detail .banner .url .url-img img {
+  width: 100%;
+}
+
+.community-detail .banner .url .url-img span:first-child {
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+}
+
+.community-detail .banner .url .url-img span:first-child img {
+  height: 100%;
+}
+
+.community-detail .banner .url .url-img span:nth-child(2) {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 5;
+}
+
+.community-detail .banner .url .url-img span:nth-child(2) img {
+  width: 100%;
+  height: 100%;
+}
+
+.community-detail .content {
+  padding-top: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+}
+
+.community-detail .content .left {
+  border: 1px solid #eee;
+  width: 60vw;
+}
+
+.community-detail .content .right {
+  position: relative;
+  width: 40vw;
+  border: 1px solid #ddd;
+  padding: 20px;
+}
+
+.community-detail .content .right .intro {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: gainsboro;
+  width: 100%;
+  height: 40px;
+}
+
+.community-detail .content .right .intro h3 {
+  padding: 10px;
+}
+
+.community-detail .content .right .detail {
+  padding-top: 45px;
+}
+/*# sourceMappingURL=globals.css.map */

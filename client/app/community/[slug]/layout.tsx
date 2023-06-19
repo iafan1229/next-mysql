@@ -25,16 +25,13 @@ export default async function SiteLayout(
 }
 
 async function getData(request: NextRequest, response: NextResponse) {
-	// console.log(response);
 	try {
-		const getCookie = cookies().get('token')?.value;
-
-		if (!getCookie) throw new Error('Missing auth token cookie');
-
-		const result = await axios('http://localhost:5000/api/auth/me', {
-			headers: { getCookie },
-		});
-		if (result) return true;
+		// const getCookie = cookies().get('token')?.value;
+		// if (!getCookie) throw new Error('Missing auth token cookie');
+		// const result = await axios('http://localhost:5000/api/auth/me', {
+		// 	headers: { getCookie },
+		// });
+		// if (result) return true;
 	} catch (error) {
 		return false;
 	}

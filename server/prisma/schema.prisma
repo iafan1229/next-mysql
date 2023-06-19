@@ -31,12 +31,13 @@ model Subs{
   name String @db.VarChar(200)
   title String @db.VarChar(200)
   description String? @db.MediumText
-  imageUrn String? @db.VarChar(200)
+  imageUrn  String  @default("https://www.gravatar.com/avatar?d=mp&f=y")
   bannerUrn String? @db.VarChar(200)
+  userName String @db.VarChar(200)
   //foriegn key
-  userName String
+  userId String
   //userId String @unique
-  user User @relation(fields: [userName], references: [id])
+  user User @relation(fields: [userId], references: [id])
   posts Post[]
 }
 
