@@ -1,11 +1,13 @@
 'use client';
 
-import { ChangeEvent, useRef, useState, useEffect } from 'react';
+import { ChangeEvent, useRef, useState, useEffect, FormEvent } from 'react';
 import { useParams } from 'next/navigation';
 import { useQuery } from 'react-query';
 import axios from 'axios';
 import Image from 'next/image';
 import { useAuthState } from '@/context/auth';
+import Input from '@/components/input';
+import Post from '@/components/post';
 
 interface subType {
 	data: {
@@ -20,13 +22,26 @@ interface subType {
 		userName: string;
 	};
 }
+interface arrayType {
+	title: string;
+	body: string;
+	userName: string;
+	identifier: string;
+	slug: string;
+	createdAt: null | string;
+	updatedAt: string;
+}
+interface PostType {
+	data: arrayType[];
+}
 
 export default function Community() {
+	const [createPosts, setCreatePosts] = useState(false);
 	const [ownSub, setOwnSub] = useState(false);
 	const [name, setName] = useState<string>('');
 	const { authenticated, user } = useAuthState();
 	const fileInputRef = useRef<HTMLInputElement>(null);
-	const { slug } = useParams();
+	const { slug, identifier } = useParams();
 	const {
 		data: sub,
 		error,
@@ -38,7 +53,20 @@ export default function Community() {
 		);
 		return data;
 	});
-	console.log(sub);
+
+	const { data: post } = useQuery(['getPosts', slug], async () => {
+		// getPost는 idx값을 받아서 Post 데이터를 가져오는 API
+		const data: PostType = await axios.get(
+			`http://localhost:3000/api/posts/${slug}`
+		);
+		return data;
+	});
+
+	console.log(post);
+
+	const [postName, setPostName] = useState('');
+	const [postError, setPostError] = useState<any>({});
+	const [desc, setDesc] = useState('');
 
 	const uploadImg = async (e: ChangeEvent<HTMLInputElement>) => {
 		if (e.target.files === null) return;
@@ -68,13 +96,61 @@ export default function Community() {
 			fileinput.click();
 		}
 	};
+	const createPost = () => {
+		setCreatePosts(!createPosts);
+	};
+
+	const handleSubmit = async (e: FormEvent) => {
+		e.preventDefault();
+		if (postName.trim() === '' || !sub?.data) return;
+		try {
+			const data = await axios.post('/api/posts', {
+				postName: postName.trim(),
+				desc,
+				sub: sub.data.name,
+			});
+			if (data) {
+				alert('글 성공적으로 작성됨');
+				console.log(data);
+				setCreatePosts(false);
+			}
+		} catch (err) {
+			console.log(err);
+		}
+	};
 	useEffect(() => {
 		if (!sub?.data || !user?.name) return;
 		setOwnSub(authenticated && user?.name === sub.data.userName);
 	}, [sub, user, authenticated]);
-	console.log(ownSub);
+
 	return (
 		<div className='community-detail'>
+			{createPosts && (
+				<div className='create-post'>
+					<form action='' onSubmit={(e) => handleSubmit(e)}>
+						<span className='close' onClick={() => setCreatePosts(false)}>
+							<img src='/common/close.png' alt='닫기' />
+						</span>
+						<Input
+							text='포스트 이름'
+							value={postName}
+							setValue={setPostName}
+							type='text'
+							placeholder='Title'
+							error={postError.name}
+						/>
+						<Input
+							text='포스트 설명'
+							value={desc}
+							setValue={setDesc}
+							type='text'
+							placeholder='description'
+							error={postError.desc}
+						/>
+						<button type='submit'>포스트 생성</button>
+					</form>
+				</div>
+			)}
 			<div className='banner'>
 				<p>/community/{sub?.data?.name}</p>
 				{sub?.data?.bannerUrn ? (
@@ -114,7 +190,19 @@ export default function Community() {
 			</div>
 
 			<div className='content'>
-				<div className='left'></div>
+				<div className='left'>
+					{post?.data.map((el, idx) => {
+						return (
+							<Post
+								key={idx}
+								title={el.title}
+								body={el.body}
+								userName={el.identifier}
+								updatedAt={el.updatedAt}
+							/>
+						);
+					})}
+				</div>
 				<div className='right'>
 					<div className='intro'>
 						<h3>커뮤니티에 대해서</h3>
@@ -138,7 +226,7 @@ export default function Community() {
 									.split('.')[0]
 							}`}
 						</p>
-						<button>포스트 생성</button>
+						<button onClick={createPost}>포스트 생성</button>
 					</div>
 				</div>
 			</div>

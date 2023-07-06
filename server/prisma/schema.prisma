@@ -53,6 +53,7 @@ model Post{
   
   subName String
   //userId String @unique
+  //sub.id를 참조해서 subName을 찾겠다는 뜻임(name이 아니고)
   sub Subs @relation(fields: [subName], references: [id])
   userName String
   user User @relation(fields: [userName], references: [id])

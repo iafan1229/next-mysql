@@ -108,7 +108,13 @@ const getSub = async (req: Request, res: Response) => {
 				name: name,
 			},
 		});
-
+		//포스트를 생성한 후에 해당 sub에 속하는 post 정보들을 넣어주기
+		const posts = await prisma.post.findFirst({
+			where: {
+				sub,
+			},
+		});
+		sub.posts = posts;
 		return res.status(200).json(sub);
 	} catch (err) {
 		return res.status(404).json({ error: '커뮤니티를 찾을수없음' });
